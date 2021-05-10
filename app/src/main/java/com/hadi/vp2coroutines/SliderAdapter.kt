@@ -9,9 +9,16 @@ import coil.transform.CircleCropTransformation
 import com.hadi.vp2coroutines.databinding.ItemSliderBinding
 
 class SliderAdapter(
-    private val context: Context,
-    private val list: List<String>
+    private val context: Context
 ) : RecyclerView.Adapter<SliderAdapter.SliderViewHolder>() {
+
+    private var list = mutableListOf<String>()
+
+
+    fun setImages(list: List<String>){
+        this.list.clear()
+        this.list.addAll(list);
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SliderViewHolder {
         val binding = ItemSliderBinding.inflate(LayoutInflater.from(context), parent, false)
